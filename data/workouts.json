@@ -1,0 +1,18 @@
+{
+    "Build Muscle": {
+      "Beginner": ["Push-ups", "Bodyweight Squats", "Dumbbell Rows"],
+      "Intermediate": ["Bench Press", "Pull-ups", "Barbell Squats"],
+      "Advanced": ["Deadlifts", "Clean & Press", "Weighted Dips"]
+    },
+    "Lose Fat": {
+      "Beginner": ["Jumping Jacks", "Mountain Climbers", "Burpees"],
+      "Intermediate": ["HIIT Circuit", "Jump Rope", "Kettlebell Swings"],
+      "Advanced": ["Sprints", "Battle Ropes", "Tabata"]
+    },
+    "Improve Endurance": {
+      "Beginner": ["Brisk Walking", "Cycling", "Rowing"],
+      "Intermediate": ["Jogging", "Elliptical", "Swimming"],
+      "Advanced": ["Trail Running", "Spin Class", "Stair Sprints"]
+    }
+  }
+  

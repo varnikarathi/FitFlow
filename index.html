@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FitFlow Generator</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    function updateIcon() {
+      const icon = document.getElementById('theme-toggle-icon');
+      if (document.body.classList.contains('dark')) {
+        icon.innerHTML = '🌙'; // Moon icon for dark theme
+      } else {
+        icon.innerHTML = '🌞'; // Sun icon for light theme
+      }
+    }
+
+    // Load theme from localStorage
+    window.onload = () => {
+      if (localStorage.getItem('theme') === 'dark') {
+        document.body.classList.add('dark');
+      }
+      updateIcon(); // Ensure the icon is updated based on the current theme
+    }
+
+    const headingText = "Welcome to ";
+    const highlightText = "FitFlow Generator";
+    const subText = "Create your personalized workout routine in seconds!";
+    
+    let headingIndex = 0;
+    let highlightIndex = 0;
+    let subIndex = 0;
+
+    function typeHeading() {
+      if (headingIndex < headingText.length) {
+        document.getElementById("typing-heading").innerHTML += headingText.charAt(headingIndex);
+        headingIndex++;
+        setTimeout(typeHeading, 60);
+      } else {
+        typeHighlight();
+      }
+    }
+
+    function typeHighlight() {
+      if (highlightIndex < highlightText.length) {
+        document.getElementById("highlight-text").innerHTML += highlightText.charAt(highlightIndex);
+        highlightIndex++;
+        setTimeout(typeHighlight, 60);
+      } else {
+        setTimeout(typeSubText, 500);
+      }
+    }
+
+    function typeSubText() {
+      if (subIndex < subText.length) {
+        document.getElementById("typing-subtext").innerHTML += subText.charAt(subIndex);
+        subIndex++;
+        setTimeout(typeSubText, 40);
+      }
+    }
+
+    window.addEventListener("DOMContentLoaded", typeHeading);
+
+  </script>
+
+  <style>
+    @keyframes slideIn {
+      0% { transform: translateY(50px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+
+    .slide-in {
+      animation: slideIn 1s ease-out forwards;
+    }
+
+    .delay-100 { animation-delay: 0.1s; }
+    .delay-200 { animation-delay: 0.2s; }
+    .delay-300 { animation-delay: 0.3s; }
+    .delay-500 { animation-delay: 0.5s; }
+
+    .glow {
+      box-shadow: 0 0 15px rgba(59, 130, 246, 0.6);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-b from-[#06111F] via-[#002147] to-[#193050] text-[#D0E8C5]">
+
+  <!-- Navbar -->
+  <header class="fixed top-0 left-0 w-full z-50 bg-gradient-to-r from-[#082240] via-[#002147] to-[#193050] shadow-md">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+      <h1 class="text-2xl font-bold text-[#FFF8DE]">FitFlow</h1>
+      <nav class="space-x-4 text-[#FFF8DE] text-sm md:text-base flex-grow flex justify-end items-center">
+        <a href="#features" class="hover:text-[#BB8493]">Features</a>
+        <a href="#stats" class="hover:text-[#BB8493]">Stats</a>
+        <a href="#get-started" class="hover:text-[#BB8493]">Get Started</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="pt-28 pb-24 bg-gradient-to-b from-[#06111F] via-[#002147] to-[#193050] text-center px-4">
+    <div class="slide-in delay-100">
+      <h1 class="text-4xl md:text-6xl font-bold mb-4 text-[#FFF8DE] dark:text-[#D0E8C5]">
+        <span id="typing-heading"></span><span id="highlight-text" class="text-[#D0E8C5] dark:text-[#BB8493]"></span>
+      </h1>
+      <p id="typing-subtext" class="text-lg md:text-xl text-[#FFF8DE] dark:text-[#D0E8C5] mb-6">
+        
+      </p>
+      <a href="dashboard.php" 
+          class="inline-block bg-[#BB8493] hover:bg-[#704264] glow text-[#FFF8DE] font-semibold py-3 px-6 rounded-full transition-all duration-300 shadow-lg dark:bg-[#BB8493] dark:hover:bg-[#704264]">
+        Get Started
+      </a>
+      <p class="mt-6 text-sm text-[#FFF8DE] dark:text-[#D0E8C5] italic">
+        "The pain you feel today will be the strength you feel tomorrow."
+      </p>
+    </div>
+
+    <!-- Scroll Down Arrow -->
+    <div class="mt-12 animate-bounce">
+      <a href="#features">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-[#FFF8DE] mx-auto dark:text-[#D0E8C5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+        </svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="pt-28 pb-24 bg-gradient-to-b from-[#06111F] via-[#002147] to-[#193050] text-center px-4">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+      <div class="bg-gradient-to-br from-[#193050] to-[#082240] p-6 rounded-xl slide-in delay-100 hover:scale-105 transition dark:bg-gradient-to-br dark:from-[#06111F] dark:to-[#002147]">
+        <h3 class="text-xl font-semibold mb-2 text-[#FFF8DE] dark:text-[#D0E8C5]">🎯 Custom Goals</h3>
+        <p class="text-[#FFF8DE] dark:text-[#D0E8C5]">Pick from strength, cardio, or endurance based on what you want to achieve.</p>
+      </div>
+      <div class="bg-gradient-to-br from-[#082240] to-[#193050] p-6 rounded-xl slide-in delay-200 hover:scale-105 transition dark:bg-gradient-to-br dark:from-[#06111F] dark:to-[#002147]">
+        <h3 class="text-xl font-semibold mb-2 text-[#FFF8DE] dark:text-[#D0E8C5]">⚡ Quick & Simple</h3>
+        <p class="text-[#FFF8DE] dark:text-[#D0E8C5]">No complicated forms. Just a few clicks to get your workout plan.</p>
+      </div>
+      <div class="bg-gradient-to-br from-[#193050] to-[#082240] p-6 rounded-xl slide-in delay-300 hover:scale-105 transition dark:bg-gradient-to-br dark:from-[#06111F] dark:to-[#002147]">
+        <h3 class="text-xl font-semibold mb-2 text-[#FFF8DE] dark:text-[#D0E8C5]">📊 Track Progress</h3>
+        <p class="text-[#FFF8DE] dark:text-[#D0E8C5]">Easily view your workout history and keep pushing forward.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section id="features" class="pt-28 pb-24 bg-gradient-to-b from-[#06111F] via-[#002147] to-[#193050] text-center px-4">
+    <div class="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+      <div class="text-[#FFF8DE] dark:text-[#D0E8C5] slide-in delay-100">
+        <h2 class="text-3xl font-bold text-[#D0E8C5] dark:text-[#BB8493]">500+</h2>
+        <p class="text-sm text-[#FFF8DE] dark:text-[#D0E8C5]">Plans Generated</p>
+      </div>
+      <div class="text-[#FFF8DE] dark:text-[#D0E8C5] slide-in delay-200">
+        <h2 class="text-3xl font-bold text-[#D0E8C5] dark:text-[#BB8493]">95%</h2>
+        <p class="text-sm text-[#FFF8DE] dark:text-[#D0E8C5]">User Satisfaction</p>
+      </div>
+      <div class="text-[#FFF8DE] dark:text-[#D0E8C5] slide-in delay-300">
+        <h2 class="text-3xl font-bold text-[#D0E8C5] dark:text-[#BB8493]">7 Days</h2>
+        <p class="text-sm text-[#FFF8DE] dark:text-[#D0E8C5]">Avg Streak</p>
+      </div>
+      <div class="text-[#FFF8DE] dark:text-[#D0E8C5] slide-in delay-500">
+        <h2 class="text-3xl font-bold text-[#D0E8C5] dark:text-[#BB8493]">∞</h2>
+        <p class="text-sm text-[#FFF8DE] dark:text-[#D0E8C5]">Motivation</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Get Started Section -->
+  <section id="get-started" class="bg-[#002147] dark:bg-[#193050] py-16 text-center">
+    <h2 class="text-3xl font-bold mb-4 slide-in delay-100 text-[#FFF8DE] dark:text-[#D0E8C5]">Ready to Build Your Plan?</h2>
+    <p class="text-[#FFF8DE] dark:text-[#D0E8C5] mb-6 slide-in delay-200">Click below and take the first step towards your transformation.</p>
+    <a href="dashboard.php" 
+        class="inline-block bg-[#BB8493] hover:bg-[#704264] glow text-[#FFF8DE] font-semibold py-3 px-6 rounded-full transition-all duration-300 shadow-lg dark:bg-[#BB8493] dark:hover:bg-[#704264]">
+      Generate Now
+    </a>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gradient-to-r from-[#193050] to-[#082240] dark:from-[#06111F] dark:to-[#091428] text-center text-[#FFF8DE] dark:text-[#D0E8C5] text-sm py-6">
+    <p>&copy; 2025 FitFlow. Built by Bhaumik, Rahul, Varnika, Monalisa.</p>
+    <p class="italic mt-2">"Fitness is not about being better than someone else. It's about being better than you used to be."</p>
+
+    <!-- Social Media Links -->
+    <div class="mt-4">
+      <a href="https://www.facebook.com" target="_blank" class="text-[#FFF8DE] hover:text-[#BB8493] mx-2">
+        <i class="fab fa-facebook-f"></i> <!-- Facebook Icon -->
+      </a>
+      <a href="https://www.twitter.com" target="_blank" class="text-[#FFF8DE] hover:text-[#BB8493] mx-2">
+        <i class="fab fa-twitter"></i> <!-- Twitter Icon -->
+      </a>
+      <a href="https://www.instagram.com" target="_blank" class="text-[#FFF8DE] hover:text-[#BB8493] mx-2">
+        <i class="fab fa-instagram"></i> <!-- Instagram Icon -->
+      </a>
+      <a href="https://www.linkedin.com" target="_blank" class="text-[#FFF8DE] hover:text-[#BB8493] mx-2">
+        <i class="fab fa-linkedin-in"></i> <!-- LinkedIn Icon -->
+      </a>
+      <a href="https://www.youtube.com" target="_blank" class="text-[#FFF8DE] hover:text-[#BB8493] mx-2">
+        <i class="fab fa-youtube"></i> <!-- YouTube Icon -->
+      </a>
+    </div>
+  </footer>
+
+</body>
+</html>
